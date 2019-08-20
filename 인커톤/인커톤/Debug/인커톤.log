@@ -1,2 +1,4 @@
 ﻿  명단관리.cpp
-  인커톤.vcxproj -> C:\Users\하승원\Desktop\인커톤\Debug\인커톤.exe
+C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(43,1): warning C4305:  '초기화 중': 'int'에서 'char'(으)로 잘립니다.
+C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(43,17): warning C4309:  '초기화 중': 상수 값이 잘립니다.
+  인커톤.vcxproj -> C:\Users\하승원\Documents\interface_hackathon\인커톤\Debug\인커톤.exe
