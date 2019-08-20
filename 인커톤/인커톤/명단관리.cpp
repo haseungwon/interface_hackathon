@@ -40,8 +40,8 @@ private:
 	
 	void insert_member()
 	{
-		char answer = 'y';
-		while (answer == 'y') {
+		char answer = 'ㅇ';
+		while (answer == 'ㅇ') {
 			system("cls");
 			gotoxy(44, 2);
 			cout << "신입 기수를 추가하는 란입니다" << endl;
@@ -86,18 +86,28 @@ private:
 			index++;
 
 			gotoxy(38, 18);
-			cout << "계속 하시겠습니까? y/n >> ";
+			cout << "계속 하시겠습니까? ㅇ/ㄴ >> ";
 			cin >> answer;
 		}
 	}
 	void view_member()
 	{
+		string bbb;
+		system("cls");
+		cout << "무엇을 검색 하실건가요?" << endl;
+		cout << "1. 기수" << endl;
+		cout << "2. 학번" << endl;
+		cout << "3. 이름" << endl;
+		cout << "4. 전화번호(010-xxxx-xxxx 형식으로 검색)" << endl;
+		cout << "5. 재학 여부(신입, 재학, 휴학) 검색" << endl;
+		cout << "메뉴를 선택하세요: " << endl;
+		cin >> bbb;
 
 	}
 
 	void save_member()
 	{
-		ofstream file("'명단.txt");
+		ofstream file("명단.txt");
 		if (!file)
 		{
 			cout << "파일 읽기를 실패하였습니다" << endl;
@@ -105,7 +115,7 @@ private:
 		}
 		for (int i = 0;i < index;i++)
 		{
-			file << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num <<
+			file << list[i].cardinal_num << "\t" << list[i].student_id << "\t"<<list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num <<
 				"\t" << list[i].statement << endl;
 		}
 		file.close();
@@ -116,8 +126,28 @@ public:
 
 	vector<Member> list;
 	Member mem;
-	int index = 0;
+	int index;
 
+	Manage()
+	{
+		Member tmp;
+
+		ifstream file("명단.txt");
+		if (!file)
+		{
+			cout << "명단을 불러올수가 없습니다";
+		
+		}
+		index = 0;
+		while (!file.eof())
+		{
+			file >> tmp.cardinal_num >> tmp.student_id >> tmp.name >> tmp.major >> tmp.phone_num >> tmp.statement;
+			list.push_back(tmp);
+			
+			index++;
+		}
+		
+	}
 
 	void start_menu() {
 
@@ -186,6 +216,7 @@ public:
 				{
 					save_member();
 					exit(1);
+					list.clear();
 					break;
 				}
 				default:
