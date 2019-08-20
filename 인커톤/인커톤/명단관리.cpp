@@ -40,8 +40,9 @@ private:
 	
 	void insert_member()
 	{
-		char answer = 'ㅇ';
-		while (answer == 'ㅇ') {
+		char answer = 'y';
+		while (answer == 'y') {
+
 			system("cls");
 			gotoxy(44, 2);
 			cout << "신입 기수를 추가하는 란입니다" << endl;
@@ -86,47 +87,53 @@ private:
 			index++;
 
 			gotoxy(38, 18);
-			cout << "계속 하시겠습니까? ㅇ/ㄴ >> ";
+			cout << "계속 하시겠습니까? y/n >> ";
 			cin >> answer;
 		}
 	}
 	void view_member()
 	{
-		int bbb;
-		string find;
-		system("cls");
-		cout << "무엇을 검색 하실건가요?" << endl;
-		cout << "1. 기수" << endl;
-		cout << "2. 학번" << endl;
-		cout << "3. 이름" << endl;
-		cout << "4. 전화번호(010-xxxx-xxxx 형식으로 검색)" << endl;
-		cout << "5. 재학 여부(신입, 재학, 휴학) 검색" << endl;
-		cout << "6. 메인 화면으로 돌아가기" << endl;
-		cout << "메뉴를 선택하세요: ";
-		cin >> bbb;
+		
+			int bbb;
+			string find;
+			string tmp;
+			while(1){
+			system("cls");
+			cout << "무엇을 검색 하실건가요?" << endl;
+			cout << "1. 기수" << endl;
+			cout << "2. 학번" << endl;
+			cout << "3. 이름" << endl;
+			cout << "4. 전화번호(010-xxxx-xxxx 형식으로 검색)" << endl;
+			cout << "5. 재학 여부(신입, 재학, 휴학) 검색" << endl;
+			cout << "6. 메인 화면으로 돌아가기" << endl;
+			cout << "메뉴를 선택하세요: ";
+			cin >> bbb;
 
-		switch (bbb)
-		{
+			switch (bbb)
+			{
 			case 1:
 			{
 				cout << "기수를 입력하세요 : " << endl;
 				cin >> find;
 				for (int i = 0;i < index;i++)
 				{
-					if (find.compare(list[i].cardinal_num)==0)
+					if (find.compare(list[i].cardinal_num) == 0)
 					{
-
+						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement << endl;
 					}
 				}
+				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
+				cin >> tmp;
+				break;
 			}
 			case 2:
 			{
 
 			}
 
+			}
+
 		}
-
-
 	}
 
 	void save_member()
