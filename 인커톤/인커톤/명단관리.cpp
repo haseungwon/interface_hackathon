@@ -21,15 +21,6 @@ typedef struct member {
 }Member;
 
 
-void file_open(fstream& f, string dir, char mode)
-{
-	if (mode == 'w')	f.open(dir, ios::app);
-	else if (mode == 'r') f.open(dir, ios::in);
-
-	if (!f) {
-		cout << "Failed to load file" << endl;
-	}
-}
 
 void gotoxy(short x, short y) {
 	COORD pos = { x, y };
@@ -46,7 +37,7 @@ void setcolor(int color, int bgcolor)
 class Manage
 {
 private:
-	fstream file;
+	
 	void insert_member()
 	{
 		char answer = 'y';
@@ -90,6 +81,23 @@ private:
 
 	}
 
+	void save_member()
+	{
+		ofstream file("'명단.txt");
+		if (!file)
+		{
+			cout << "파일 읽기를 실패하였습니다" << endl;
+			exit(1);
+		}
+		for (int i = 0;i < index;i++)
+		{
+			file << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num <<
+				"\t" << list[i].statement << endl;
+		}
+		file.close();
+	
+	}
+
 public:
 
 	vector<Member> list;
@@ -119,7 +127,8 @@ public:
 	void menu()
 	{
 		int select_menu;
-		while (1) {
+		while (1)
+		{
 			system("cls");
 			gotoxy(25, 2);
 			cout << "☆★☆★☆★☆★ 인터페이스 명부 관리 프로그램 ☆★☆★☆★☆★" << endl;
@@ -131,21 +140,48 @@ public:
 			cout << "3. 수정";
 			gotoxy(40, 15);
 			cout << "4. 삭제";
-			gotoxy(38, 18);
+			gotoxy(40, 18);
+			cout << "5. 끝내기";
+			gotoxy(40, 21);
+			
 			cout << "메뉴를 선택하세요 : ";
 			cin >> select_menu;
 			switch (select_menu)
 			{
-			case 1:
-			{
-				insert_member();
-			}
-			case 2:
-			{
-				view_member();
+				case 1:
+				{
+					insert_member();
+					break;
+				}
+				case 2:
+				{
+					view_member();
+					break;
+				}
+				case 3:
+				{
+
+					break;
+				}
+				case 4:
+				{
+
+					break;
+				}
+				case 5:
+				{
+					save_member();
+					exit(1);
+					break;
+				}
+				default:
+				{
+					cout << "메뉴를 정확하게 입력해주세요" << endl;
+					break;
+				}
 			}
 
-			}
+			
 		}
 	}
 
