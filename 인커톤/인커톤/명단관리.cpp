@@ -128,9 +128,35 @@ private:
 			}
 			case 2:
 			{
+				cout << "학번을 입력하세요 : " << endl;
+				cin >> find;
+				for (int i = 0;i < index;i++)
+				{
 
+					if (find.compare(list[i].cardinal_num) == 0)
+					{
+						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement << endl;
+					}
+				}
+				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
+				cin >> tmp;
+				break;
 			}
-
+			case3:
+			{
+				cout << "이름을 입력하세요 : " << endl;
+				cin >> find;
+				for (int i = 0;i < index;i++)
+				{
+					if (find.compare(list[i].cardinal_num) == 0)
+					{
+						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement << endl;
+					}
+				}
+				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
+				cin >> tmp;
+				break;
+			}
 			}
 
 		}
