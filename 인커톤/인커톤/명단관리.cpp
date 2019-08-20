@@ -92,7 +92,8 @@ private:
 	}
 	void view_member()
 	{
-		string bbb;
+		int bbb;
+		string find;
 		system("cls");
 		cout << "무엇을 검색 하실건가요?" << endl;
 		cout << "1. 기수" << endl;
@@ -100,8 +101,31 @@ private:
 		cout << "3. 이름" << endl;
 		cout << "4. 전화번호(010-xxxx-xxxx 형식으로 검색)" << endl;
 		cout << "5. 재학 여부(신입, 재학, 휴학) 검색" << endl;
-		cout << "메뉴를 선택하세요: " << endl;
+		cout << "6. 메인 화면으로 돌아가기" << endl;
+		cout << "메뉴를 선택하세요: ";
 		cin >> bbb;
+
+		switch (bbb)
+		{
+			case 1:
+			{
+				cout << "기수를 입력하세요 : " << endl;
+				cin >> find;
+				for (int i = 0;i < index;i++)
+				{
+					if (find.compare(list[i].cardinal_num)==0)
+					{
+
+					}
+				}
+			}
+			case 2:
+			{
+
+			}
+
+		}
+
 
 	}
 
