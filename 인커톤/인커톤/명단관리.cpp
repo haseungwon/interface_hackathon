@@ -43,36 +43,50 @@ private:
 		char answer = 'y';
 		while (answer == 'y') {
 			system("cls");
+			gotoxy(44, 2);
 			cout << "신입 기수를 추가하는 란입니다" << endl;
 
-
+			gotoxy(38, 5);
 			cout << "기수: ";
+
+			gotoxy(38, 7);
+			cout << "학번: ";
+
+			gotoxy(38, 9);
+			cout << "이름: ";
+			
+			gotoxy(38, 11);
+			cout << "학과: ";
+			
+			gotoxy(38, 13);
+			cout << "전번: ";
+			
+			gotoxy(38, 15);
+			cout << "상태: ";
+
+			gotoxy(44, 5);
 			cin >> mem.cardinal_num;
 
-
-			cout << "학번: ";
+			gotoxy(44, 7);
 			cin >> mem.student_id;
 
-
-			cout << "이름: ";
+			gotoxy(44, 9);
 			cin >> mem.name;
 
-
-			cout << "학과: ";
+			gotoxy(44, 11);
 			cin >> mem.major;
 
-
-			cout << "전번: ";
+			gotoxy(44, 13);
 			cin >> mem.phone_num;
 
-
-			cout << "상태: ";
+			gotoxy(44, 15);
 			cin >> mem.statement;
 
 			list.push_back(mem);
 			index++;
 
-			cout << "계속 하시겠습니까? y/n ";
+			gotoxy(38, 18);
+			cout << "계속 하시겠습니까? y/n >> ";
 			cin >> answer;
 		}
 	}
@@ -126,6 +140,7 @@ public:
 
 	void menu()
 	{
+		setcolor(15, 0);
 		int select_menu;
 		while (1)
 		{
@@ -143,7 +158,6 @@ public:
 			gotoxy(40, 18);
 			cout << "5. 끝내기";
 			gotoxy(40, 21);
-			
 			cout << "메뉴를 선택하세요 : ";
 			cin >> select_menu;
 			switch (select_menu)
@@ -176,7 +190,11 @@ public:
 				}
 				default:
 				{
+					system("cls");
+					gotoxy(44,10);
 					cout << "메뉴를 정확하게 입력해주세요" << endl;
+					gotoxy(44,20);
+					system("pause");
 					break;
 				}
 			}
@@ -190,6 +208,7 @@ public:
 
 int main()
 {
+	system("mod con cols=118 lines=30"); //콘솔창 가로 세로 길이 고정
 	system("title 인터페이스 명부 관리 프로그램");
 	Manage test;
 	string bbb;
