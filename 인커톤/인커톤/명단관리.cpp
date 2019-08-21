@@ -290,16 +290,108 @@ private:
 	void delete_member()
 	{
 		
+		Member tmp;
+		vector<string> enter;
+		tmp.cardinal_num = "\n";
+		tmp.student_id = "\n";
+		tmp.name = "\n";
+		tmp.major = "\n";
+		tmp.phone_num = "\n";
+		tmp.statement = "\n";
 
-	}
+		system("cls");
+		gotoxy(44, 2);
+		cout << "명단을 삭제하는 란입니다 아시는 정보를 입력하세요 " << endl;
+
+		gotoxy(38, 5);
+		cout << "기수 : ";
+
+		gotoxy(38, 8);
+		cout << "학번 : ";
+
+		gotoxy(38, 11);
+		cout << "이름 : ";
+
+		gotoxy(38, 14);
+		cout << "학과 : ";
+
+		gotoxy(38, 17);
+		cout << "전번 : ";
+
+		gotoxy(38, 20);
+		cout << "상태 : ";
+
+		gotoxy(45, 5);
+		getchar();
+		getline(cin, tmp.cardinal_num);
+		
+
+		gotoxy(45, 8);
+		getline(cin, tmp.student_id);
+		
+
+		gotoxy(45, 11);
+		getline(cin, tmp.name);
 	
+
+		gotoxy(45, 14);
+		getline(cin, tmp.major);
+	
+
+		gotoxy(45, 17);
+		getline(cin, tmp.phone_num);
+	
+
+		gotoxy(45, 20);
+		getline(cin, tmp.statement);
+		
+		if (tmp.cardinal_num.compare("\n") != 0)
+		{
+			enter.push_back(tmp.cardinal_num);
+		}
+		if (tmp.student_id.compare("\n") != 0)
+		{
+			enter.push_back(tmp.student_id);
+		}
+		if (tmp.name.compare("\n") != 0)
+		{
+			enter.push_back(tmp.name);
+		}
+		if (tmp.major.compare("\n") != 0)
+		{
+			enter.push_back(tmp.major);
+		}
+		if (tmp.phone_num.compare("\n"))
+		{
+			enter.push_back(tmp.phone_num);
+		}
+		if (tmp.statement.compare("\n") != 0)
+		{
+			enter.push_back(tmp.statement);
+		}
+
+		for (int i = 0;i < index;i++)
+		{
+
+			if(inside(enter.front(),list[i].)==1)
+		}
+
+
+		for (int i = 1;i < enter.size();i++)
+		{
+
+		}
+		
+	}
+
+
 	
 public:
 
 	vector<Member> list;
 	Member mem;
 	int index;
-
+	vector<int> index_arr;
 	Manage()
 	{
 		Member tmp;
