@@ -170,6 +170,34 @@ class Manage
 				}
 			}
 
+			for (int i = 0;i < list.size();i++)
+			{
+				for (int j = i;j < list.size();j++)
+				{
+					if (list[i].cardinal_num.compare(list[j].cardinal_num) > 0)
+					{
+						swap(&list[i], &list[j]);
+					}
+
+				}
+
+			}
+			for (int i = 0;i < list.size();i++)
+			{
+				for (int j = i;j < list.size();j++)
+				{
+					if (list[i].cardinal_num.compare(list[j].cardinal_num) == 0)
+					{
+						if(list[i].student_id.compare(list[j].student_id)>0)
+							swap(&list[i], &list[j]);
+					}
+
+				}
+
+			}
+
+
+
 			gotoxy(38, 23);
 			cout << "계속 하시겠습니까? y/n >> ";
 			cin >> answer;
@@ -183,6 +211,16 @@ class Manage
 			}
 		}
 	}
+	void swap(Member *x,Member *y)
+	{
+		Member tmp;
+		tmp = *x;
+		*x = *y;
+		*y = tmp;
+	}
+
+
+
 
 	void error() {
 		system("cls");
@@ -801,16 +839,16 @@ public:
 
 		string id;
 		system("cls");
-		for (int i = 0; i < 1; i++) {
-			setcolor(10, 0);
-			gotoxy(25, 2);
-			cout << "☆★☆★☆★☆★ 인터페이스 명부 관리 프로그램 ☆★☆★☆★☆★" << endl;
-			Sleep(500);
-			system("cls");
+		for (int i = 0; i < 10; i++) {
 			setcolor(15, 0);
-			gotoxy(25, 2);
+			gotoxy(28, 2);
 			cout << "☆★☆★☆★☆★ 인터페이스 명부 관리 프로그램 ☆★☆★☆★☆★" << endl;
-			Sleep(500);
+			Sleep(200);
+			system("cls");
+			setcolor(10, 0);
+			gotoxy(28, 2);
+			cout << "☆★☆★☆★☆★ 인터페이스 명부 관리 프로그램 ☆★☆★☆★☆★" << endl;
+			Sleep(200);
 			system("cls");
 		}
 
@@ -819,7 +857,7 @@ public:
 	void instruction()
 	{
 		system("cls");
-		gotoxy(28, 2);
+		gotoxy(30, 2);
 		cout << "☆★☆★☆★☆★ 명부 관리 프로그램 사용법 ☆★☆★☆★☆★" << endl;
 		gotoxy(38, 5);
 		cout << "추가 메뉴 입력 예시";
@@ -837,8 +875,11 @@ public:
 		cout << "상태: 재학";
 		gotoxy(38, 24);
 		cout << "추가 메뉴 r / m 키 사용 예시\tex) 기수 : r";
-		gotoxy(38, 27);
+		gotoxy(12, 27);
+		cout << "추가 메뉴를 이용하여 저장된 내용은 메인 메뉴의 종료하기를 눌러서 정상적으로 종료해야만 저장됩니다.";
+		gotoxy(38, 30);
 		system("pause");
+
 	}
 
 	void menu()
@@ -911,6 +952,7 @@ int main()
 	string bbb;
 	test.start_menu();
 	test.menu();
+	gotoxy(1, 29);
 
 	return 0;
 }
