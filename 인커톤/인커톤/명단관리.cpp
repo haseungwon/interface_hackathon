@@ -283,7 +283,7 @@ private:
 					for (int i = 0;i < index;i++)
 					{
 					
-						if (inside(find, list[i].major) == 1)
+						if (inside(find, list[i].phone_num) == 1)
 						{
 							idx++;
 							gotoxy(28, 2 + 3 * idx);
@@ -350,6 +350,7 @@ private:
 		vector<string> enter;
 		char x;
 		while (1) {
+			index_arr.clear();
 			tmp.cardinal_num = "\n";
 			tmp.student_id = "\n";
 			tmp.name = "\n";
@@ -416,6 +417,7 @@ private:
 			{
 				cout << "삭제할 대상을 하나로 다시 검색해주세요" << endl;
 				system("pause");
+				index_arr.clear();
 			}
 
 			else if (index_arr.size() == 1)
@@ -441,7 +443,132 @@ private:
 		
 	}
 
+	void change_member()
+	{
+		Member tmp;
+		vector<string> enter;
+		string before;
+		string after;
+		int tm;
+		char x;
+		while (1) {
+			index_arr.clear();
+			tmp.cardinal_num = "\n";
+			tmp.student_id = "\n";
+			tmp.name = "\n";
+			tmp.major = "\n";
+			tmp.phone_num = "\n";
+			tmp.statement = "\n";
 
+			system("cls");
+			gotoxy(44, 2);
+			cout << "명단을 수정하는 란입니다 아시는 정보를 입력해서 대상을 찾아주세요 " << endl;
+
+			gotoxy(38, 5);
+			cout << "기수 : ";
+
+			gotoxy(38, 8);
+			cout << "학번 : ";
+
+			gotoxy(38, 11);
+			cout << "이름 : ";
+
+			gotoxy(38, 14);
+			cout << "학과 : ";
+
+			gotoxy(38, 17);
+			cout << "전번 : ";
+
+			gotoxy(38, 20);
+			cout << "상태 : ";
+
+			gotoxy(45, 5);
+			getchar();
+			getline(cin, tmp.cardinal_num);
+
+
+			gotoxy(45, 8);
+			getline(cin, tmp.student_id);
+
+
+			gotoxy(45, 11);
+			getline(cin, tmp.name);
+
+
+			gotoxy(45, 14);
+			getline(cin, tmp.major);
+
+
+			gotoxy(45, 17);
+			getline(cin, tmp.phone_num);
+
+
+			gotoxy(45, 20);
+			getline(cin, tmp.statement);
+
+			for (int i = 0;i < index;i++)
+			{
+				if (inside(tmp.cardinal_num, list[i].cardinal_num) == 1 && inside(tmp.student_id, list[i].student_id) == 1 && inside(tmp.name, list[i].name) == 1 && inside(tmp.major, list[i].major) == 1 && inside(tmp.phone_num, list[i].phone_num) == 1 && inside(tmp.statement, list[i].statement) == 1)
+				{
+					cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement << endl;
+
+					index_arr.push_back(i);
+				}
+			}
+			if (index_arr.size() != 1)
+			{
+				cout << "수정할 대상을 하나로 다시 검색해주세요" << endl;
+				system("pause");
+				index_arr.clear();
+			}
+
+			else if (index_arr.size() == 1)
+			{
+				cout << "수정전과 수정후를 입력해주세요" << endl;
+				cout << " 수정 전: ";
+				cin >> before;
+				cout << "수정 후: ";
+				cin >> after;
+				if (list[index_arr.front()].cardinal_num.compare(before) == 0)
+				{
+					tm = list[index_arr.front()].cardinal_num.length();
+					list[index_arr.front()].cardinal_num.replace(0, tm, after);
+					break;
+				}
+				if (list[index_arr.front()].student_id.compare(before) == 0)
+				{
+					tm = list[index_arr.front()].student_id.length();
+					list[index_arr.front()].student_id.replace(0, tm, after);
+					break;
+				}
+				if (list[index_arr.front()].name.compare(before) == 0)
+				{
+					tm = list[index_arr.front()].name.length();
+					list[index_arr.front()].name.replace(0, tm, after);
+					break;
+				}
+				if (list[index_arr.front()].major.compare(before) == 0)
+				{
+					tm = list[index_arr.front()].major.length();
+					list[index_arr.front()].major.replace(0, tm, after);
+					break;
+				}
+				if (list[index_arr.front()].phone_num.compare(before) == 0)
+				{
+					tm = list[index_arr.front()].phone_num.length();
+					list[index_arr.front()].phone_num.replace(0, tm, after);
+					break;
+				}
+				if (list[index_arr.front()].statement.compare(before) == 0)
+				{
+					tm = list[index_arr.front()].statement.length();
+					list[index_arr.front()].statement.replace(0, tm, after);
+					break;
+				}
+
+			}
+		}
+	}
 	
 public:
 
@@ -527,7 +654,7 @@ public:
 				}
 				case 3:
 				{
-
+					change_member();
 					break;
 				}
 				case 4:
