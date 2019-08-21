@@ -4,5 +4,5 @@ C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관�
 C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(175,22): warning C4018:  '<': signed 또는 unsigned가 일치하지 않습니다.
 C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(185,21): warning C4018:  '<': signed 또는 unsigned가 일치하지 않습니다.
 C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(187,22): warning C4018:  '<': signed 또는 unsigned가 일치하지 않습니다.
-C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(582,8): warning C4101:  'x' :참조되지 않은 지역 변수입니다.
+C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(580,8): warning C4101:  'x' :참조되지 않은 지역 변수입니다.
   인커톤.vcxproj -> C:\Users\하승원\Documents\interface_hackathon\인커톤\Debug\인커톤.exe
