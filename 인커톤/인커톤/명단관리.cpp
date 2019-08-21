@@ -262,7 +262,7 @@ class Manage
 				system("cls");
 				gotoxy(38, 2);
 				cout << "기수를 입력하세요 : ";
-				cin >> find;
+				getline(cin, find);
 				for (int i = 0; i < index; i++)
 				{
 					if (inside(find,list[i].cardinal_num) == 1)
@@ -282,7 +282,7 @@ class Manage
 				system("cls");
 				gotoxy(38, 2);
 				cout << "학번을 입력하세요 : ";
-				cin >> find;
+				getline(cin, find);
 				for (int i = 0; i < index; i++)
 				{
 					if (inside(find, list[i].student_id) == 1)
@@ -302,7 +302,7 @@ class Manage
 				system("cls");
 				gotoxy(38, 2);
 				cout << "이름을 입력하세요 : ";
-				cin >> find;
+				getline(cin, find);
 				for (int i = 0; i < index; i++)
 				{
 
@@ -323,7 +323,7 @@ class Manage
 				system("cls");
 				gotoxy(38, 2);
 				cout << "학과를 입력하세요 : ";
-				cin >> find;
+				getline(cin, find);
 				for (int i = 0; i < index; i++)
 				{
 					if (inside(find, list[i].major) == 1)
@@ -343,7 +343,7 @@ class Manage
 				system("cls");
 				gotoxy(38, 2);
 				cout << "번호를 입력하세요 : ";
-				cin >> find;
+				getline(cin, find);
 				for (int i = 0; i < index; i++)
 				{
 
@@ -364,7 +364,7 @@ class Manage
 				system("cls");
 				gotoxy(38, 2);
 				cout << "재학 여부(신입, 재학, 휴학)를 입력하세요 : ";
-				cin >> find;
+				getline(cin, find);
 				for (int i = 0; i < index; i++)
 				{
 

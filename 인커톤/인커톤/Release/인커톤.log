@@ -1,0 +1,12 @@
+﻿  명단관리.cpp
+C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(30,15): warning C4018:  '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(173,21): warning C4018:  '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(175,22): warning C4018:  '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(185,21): warning C4018:  '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(187,22): warning C4018:  '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\하승원\Documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(580,8): warning C4101:  'x' :참조되지 않은 지역 변수입니다.
+  코드를 생성하고 있습니다.
+  Previous IPDB not found, fall back to full compilation.
+  All 324 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  인커톤.vcxproj -> C:\Users\하승원\Documents\interface_hackathon\인커톤\Release\인커톤.exe
