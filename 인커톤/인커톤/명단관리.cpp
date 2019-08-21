@@ -294,69 +294,96 @@ private:
 		
 		Member tmp;
 		vector<string> enter;
-		tmp.cardinal_num = "\n";
-		tmp.student_id = "\n";
-		tmp.name = "\n";
-		tmp.major = "\n";
-		tmp.phone_num = "\n";
-		tmp.statement = "\n";
+		char x;
+		while (1) {
+			tmp.cardinal_num = "\n";
+			tmp.student_id = "\n";
+			tmp.name = "\n";
+			tmp.major = "\n";
+			tmp.phone_num = "\n";
+			tmp.statement = "\n";
 
-		system("cls");
-		gotoxy(44, 2);
-		cout << "명단을 삭제하는 란입니다 아시는 정보를 입력하세요 " << endl;
+			system("cls");
+			gotoxy(44, 2);
+			cout << "명단을 삭제하는 란입니다 아시는 정보를 입력하세요 " << endl;
 
-		gotoxy(38, 5);
-		cout << "기수 : ";
+			gotoxy(38, 5);
+			cout << "기수 : ";
 
-		gotoxy(38, 8);
-		cout << "학번 : ";
+			gotoxy(38, 8);
+			cout << "학번 : ";
 
-		gotoxy(38, 11);
-		cout << "이름 : ";
+			gotoxy(38, 11);
+			cout << "이름 : ";
 
-		gotoxy(38, 14);
-		cout << "학과 : ";
+			gotoxy(38, 14);
+			cout << "학과 : ";
 
-		gotoxy(38, 17);
-		cout << "전번 : ";
+			gotoxy(38, 17);
+			cout << "전번 : ";
 
-		gotoxy(38, 20);
-		cout << "상태 : ";
+			gotoxy(38, 20);
+			cout << "상태 : ";
 
-		gotoxy(45, 5);
-		getchar();
-		getline(cin, tmp.cardinal_num);
-		
+			gotoxy(45, 5);
+			getchar();
+			getline(cin, tmp.cardinal_num);
 
-		gotoxy(45, 8);
-		getline(cin, tmp.student_id);
-		
 
-		gotoxy(45, 11);
-		getline(cin, tmp.name);
-	
+			gotoxy(45, 8);
+			getline(cin, tmp.student_id);
 
-		gotoxy(45, 14);
-		getline(cin, tmp.major);
-	
 
-		gotoxy(45, 17);
-		getline(cin, tmp.phone_num);
-	
+			gotoxy(45, 11);
+			getline(cin, tmp.name);
 
-		gotoxy(45, 20);
-		getline(cin, tmp.statement);
-		
-		for (int i = 0;i < index;i++)
-		{
-			if (inside(tmp.cardinal_num, list[i].cardinal_num) == 1 && inside(tmp.student_id, list[i].student_id) == 1 && inside(tmp.name, list[i].name) == 1 && inside(tmp.major, list[i].major) == 1 && inside(tmp.phone_num, list[i].phone_num) == 1 && inside(tmp.statement, list[i].statement )== 1)
+
+			gotoxy(45, 14);
+			getline(cin, tmp.major);
+
+
+			gotoxy(45, 17);
+			getline(cin, tmp.phone_num);
+
+
+			gotoxy(45, 20);
+			getline(cin, tmp.statement);
+
+			for (int i = 0;i < index;i++)
 			{
-				cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
-				
-				index_arr.push_back(i);
+				if (inside(tmp.cardinal_num, list[i].cardinal_num) == 1 && inside(tmp.student_id, list[i].student_id) == 1 && inside(tmp.name, list[i].name) == 1 && inside(tmp.major, list[i].major) == 1 && inside(tmp.phone_num, list[i].phone_num) == 1 && inside(tmp.statement, list[i].statement) == 1)
+				{
+					cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement << endl;
+
+					index_arr.push_back(i);
+				}
+			}
+			if (index_arr.size() != 1)
+			{
+				cout << "삭제할 대상을 하나로 다시 검색해주세요" << endl;
+				system("pause");
+			}
+
+			else if (index_arr.size() == 1)
+			{
+				cout << "\n인터페이스 회원 명단에서 삭제할까요? >>> y/n ";
+				cin >> x;
+				if (x == 'y')
+				{
+					for (int i = index_arr.front();i < index-1;i++)
+					{
+						list[i] = list[i + 1];
+					}
+					index--;
+					break;
+				}
+				else
+				{
+					continue;
+				}
+
 			}
 		}
-		
 		
 	}
 
