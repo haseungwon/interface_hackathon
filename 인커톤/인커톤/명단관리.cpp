@@ -54,8 +54,8 @@ void setcolor(int color, int bgcolor)
 
 class Manage
 {
-private:
-	
+	private:
+
 	void insert_member()
 	{
 		char answer = 'y';
@@ -65,8 +65,8 @@ private:
 			gotoxy(44, 2);
 			cout << "신입 기수를 추가하는 란입니다";
 
-			gotoxy(30, 25);
-			cout << "재입력을 원하시면 r, 메인 메뉴로 돌아가고 싶다면 m키 입력해주세요" << endl;
+			gotoxy(30, 26);
+			cout << "재입력을 원하시면 r키, 메인 메뉴로 돌아가고 싶다면 m키 입력해주세요" << endl;
 
 			gotoxy(38, 5);
 			cout << "기수 : ";
@@ -90,11 +90,11 @@ private:
 			cin >> mem.cardinal_num;
 			if (mem.cardinal_num == "r")
 			{
-				mem.cardinal_num = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				continue;
 			}
 			else if (mem.cardinal_num == "m") {
-				mem.cardinal_num = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				break;
 			}
 
@@ -102,11 +102,11 @@ private:
 			cin >> mem.student_id;
 			if (mem.student_id == "r")
 			{
-				mem.student_id = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				continue;
 			}
 			else if (mem.student_id == "m") {
-				mem.student_id = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				break;
 			}
 
@@ -114,11 +114,11 @@ private:
 			cin >> mem.name;
 			if (mem.name == "r")
 			{
-				mem.name = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				continue;
 			}
 			else if (mem.name == "m") {
-				mem.name = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				break;
 			}
 
@@ -126,51 +126,78 @@ private:
 			cin >> mem.major;
 			if (mem.major == "r")
 			{
-				mem.major = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				continue;
 			}
 			else if (mem.major == "m") {
-				mem.major = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				break;
 			}
 			gotoxy(45, 17);
 			cin >> mem.phone_num;
 			if (mem.phone_num == "r")
 			{
-				mem.phone_num = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				continue;
 			}
 			else if (mem.phone_num == "m") {
-				mem.phone_num = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				break;
 			}
 			gotoxy(45, 20);
 			cin >> mem.statement;
 			if (mem.statement == "r")
 			{
-				mem.statement = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				continue;
 			}
 			else if (mem.statement == "m") {
-				mem.statement = "";
+				mem.cardinal_num = ""; mem.student_id = ""; mem.name = ""; mem.major = ""; mem.phone_num = ""; mem.statement = "";
 				break;
 			}
 			list.push_back(mem);
 			index++;
 
+			for (int i = 0; i < index - 1; i++) {
+				if (mem.cardinal_num.compare(list[i].cardinal_num) == 0 && mem.major.compare(list[i].major) == 0 && mem.name.compare(list[i].name) == 0 && mem.phone_num.compare(list[i].phone_num) == 0 && mem.statement.compare(list[i].statement) == 0 && mem.student_id.compare(list[i].student_id) == 0)
+				{
+					gotoxy(38, 29);
+					cout << "이미 가입된 부원입니다.";
+					list.pop_back();
+					index--;
+				}
+			}
+
 			gotoxy(38, 23);
 			cout << "계속 하시겠습니까? y/n >> ";
 			cin >> answer;
+			while (answer != 'y'&&answer != 'n') {
+				system("cls");
+				gotoxy(38, 10);
+				cout << "y 또는 n 으로 입력해주세요";
+				gotoxy(38, 15);
+				cout << "계속 하시겠습니까? y/n >> ";
+				cin >> answer;
+			}
 		}
 	}
+
+	void error() {
+		system("cls");
+		gotoxy(44, 10);
+		cout << "메뉴를 정확하게 입력해주세요" << endl;
+		gotoxy(44, 15);
+		system("pause");
+	}
+
 	void view_member()
 	{
-			int bbb;
-			string find;
-			string tmp;
-			while(1){
+		int bbb;
+		string find;
+		string tmp;
+		while (1) {
 			system("cls");
-			gotoxy(38,2);
+			gotoxy(38, 2);
 			cout << "무엇을 검색 하실건가요?" << endl;
 			gotoxy(38, 5);
 			cout << "1. 기수" << endl;
@@ -190,138 +217,141 @@ private:
 			cout << "메뉴를 선택하세요 : ";
 			cin >> bbb;
 
-			switch (bbb)
-			{
-				case 1:
-				{
-					int idx = 0; // 표시하는 사람 수
-					system("cls");
-					gotoxy(38, 2);
-					cout << "기수를 입력하세요 : ";
-					cin >> find;
-					for (int i = 0;i < index;i++)
-					{
-						if (find.compare(list[i].cardinal_num) == 0)
-						{
-							idx++;
-							gotoxy(28, 2+3*idx);
-							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
-						}
-						gotoxy(28, 2 + 3 * (idx + 1));
-					}
-					system("pause");
-					break;
-				}
-				case 2:
-				{
-					int idx = 0; // 표시하는 사람 수
-					system("cls");
-					gotoxy(38, 2);
-					cout << "학번을 입력하세요 : ";
-					cin >> find;
-					for (int i = 0;i < index;i++)
-					{
-						if (inside(find,list[i].student_id)==1)
-						{
-							idx++;
-							gotoxy(28, 2+3*idx);
-							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
-						}
-						gotoxy(28, 2 + 3 * (idx + 1));
-					}
-					system("pause");
-					break;
-				}
-				case 3 :
-				{
-					int idx = 0; // 표시하는 사람 수
-					system("cls");
-					gotoxy(38, 2);
-					cout << "이름을 입력하세요 : " ;
-					cin >> find;
-					for (int i = 0;i < index;i++)
-					{
-					
-						if (inside(find,list[i].name)==1)
-						{
-							idx++;
-							gotoxy(28, 2 + 3 * idx);
-							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
-						}
-						gotoxy(28, 2 + 3 * (idx + 1));
-					}
-					system("pause");
-					break;
-				}
-				case 4:
-				{
-					int idx = 0; // 표시하는 사람 수
-					system("cls");
-					gotoxy(38, 2);
-					cout << "학과를 입력하세요 : " ;
-					cin >> find;
-					for (int i = 0;i < index;i++)
-					{
-						if (inside(find, list[i].major) == 1)
-						{
-							idx++;
-							gotoxy(28, 2 + 3 * idx);
-							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
-						}
-						gotoxy(28, 2 + 3 * (idx + 1));
-					}
-					system("pause");
-					break;
-				}
-				case 5:
-				{
-					int idx = 0; // 표시하는 사람 수
-					system("cls");
-					gotoxy(38, 2);
-					cout << "번호를 입력하세요 : " ;
-					cin >> find;
-					for (int i = 0;i < index;i++)
-					{
-					
-						if (inside(find, list[i].phone_num) == 1)
-						{
-							idx++;
-							gotoxy(28, 2 + 3 * idx);
-							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
-						}
-						gotoxy(28, 2 + 3 * (idx+1));
-					}
-					system("pause");
-					break;
-				}
-				case 6:
-				{
-					int idx = 0; // 표시하는 사람 수
-					system("cls");
-					gotoxy(38, 2);
-					cout << "재학 여부(신입, 재학, 휴학)를 입력하세요 : ";
-					cin >> find;
-					for (int i = 0;i < index;i++)
-					{
 
-						if (inside(find, list[i].statement) == 1)
-						{
-							idx++;
-							gotoxy(28, 2 + 3 * idx);
-							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
-						}
-						gotoxy(28, 2 + 3 * (idx + 1));
-					}
-					system("pause");
-					break;
-				
-				}
-				case 7:
+			if (bbb == 1)
+			{
+				int idx = 0; // 표시하는 사람 수
+				system("cls");
+				gotoxy(38, 2);
+				cout << "기수를 입력하세요 : ";
+				cin >> find;
+				for (int i = 0; i < index; i++)
 				{
-					return;
-					break;
+					if (inside(find,list[i].cardinal_num) == 1)
+					{
+						idx++;
+						gotoxy(28, 2 + 3 * idx);
+						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+					}
+					gotoxy(28, 2 + 3 * (idx + 1));
 				}
+				system("pause");
+
 			}
+			else if (bbb == 2)
+			{
+				int idx = 0; // 표시하는 사람 수
+				system("cls");
+				gotoxy(38, 2);
+				cout << "학번을 입력하세요 : ";
+				cin >> find;
+				for (int i = 0; i < index; i++)
+				{
+					if (inside(find, list[i].student_id) == 1)
+					{
+						idx++;
+						gotoxy(28, 2 + 3 * idx);
+						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+					}
+					gotoxy(28, 2 + 3 * (idx + 1));
+				}
+				system("pause");
+
+			}
+			else if (bbb == 3)
+			{
+				int idx = 0; // 표시하는 사람 수
+				system("cls");
+				gotoxy(38, 2);
+				cout << "이름을 입력하세요 : ";
+				cin >> find;
+				for (int i = 0; i < index; i++)
+				{
+
+					if (inside(find, list[i].name) == 1)
+					{
+						idx++;
+						gotoxy(28, 2 + 3 * idx);
+						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+					}
+					gotoxy(28, 2 + 3 * (idx + 1));
+				}
+				system("pause");
+
+			}
+			else if (bbb == 4)
+			{
+				int idx = 0; // 표시하는 사람 수
+				system("cls");
+				gotoxy(38, 2);
+				cout << "학과를 입력하세요 : ";
+				cin >> find;
+				for (int i = 0; i < index; i++)
+				{
+					if (inside(find, list[i].major) == 1)
+					{
+						idx++;
+						gotoxy(28, 2 + 3 * idx);
+						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+					}
+					gotoxy(28, 2 + 3 * (idx + 1));
+				}
+				system("pause");
+
+			}
+			else if (bbb == 5)
+			{
+				int idx = 0; // 표시하는 사람 수
+				system("cls");
+				gotoxy(38, 2);
+				cout << "번호를 입력하세요 : ";
+				cin >> find;
+				for (int i = 0; i < index; i++)
+				{
+
+					if (inside(find, list[i].phone_num) == 1)
+					{
+						idx++;
+						gotoxy(28, 2 + 3 * idx);
+						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+					}
+					gotoxy(28, 2 + 3 * (idx + 1));
+				}
+				system("pause");
+
+			}
+			else if (bbb == 6)
+			{
+				int idx = 0; // 표시하는 사람 수
+				system("cls");
+				gotoxy(38, 2);
+				cout << "재학 여부(신입, 재학, 휴학)를 입력하세요 : ";
+				cin >> find;
+				for (int i = 0; i < index; i++)
+				{
+
+					if (inside(find, list[i].statement) == 1)
+					{
+						idx++;
+						gotoxy(28, 2 + 3 * idx);
+						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+					}
+					gotoxy(28, 2 + 3 * (idx + 1));
+				}
+				system("pause");
+
+
+			}
+			else if (bbb == 7) 
+			{
+				break;
+			}
+			else
+			{
+				error();
+
+			}
+
 
 		}
 	}
@@ -334,18 +364,18 @@ private:
 			cout << "파일 읽기를 실패하였습니다" << endl;
 			exit(1);
 		}
-		for (int i = 0;i < index;i++)
+		for (int i = 0; i < index; i++)
 		{
-			file << list[i].cardinal_num << "\t" << list[i].student_id << "\t"<<list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num <<
+			file << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num <<
 				"\t" << list[i].statement << endl;
 		}
 		file.close();
-	
+
 	}
-	
+
 	void delete_member()
 	{
-		
+
 		Member tmp;
 		vector<string> enter;
 		char x;
@@ -361,6 +391,9 @@ private:
 			system("cls");
 			gotoxy(44, 2);
 			cout << "명단을 삭제하는 란입니다 아시는 정보를 입력하세요 " << endl;
+
+			gotoxy(30, 29);
+			cout << "재입력을 원하시면 r키, 메인 메뉴로 돌아가고 싶다면 m키를 입력해주세요" << endl;
 
 			gotoxy(38, 5);
 			cout << "기수 : ";
@@ -383,31 +416,83 @@ private:
 			gotoxy(45, 5);
 			getchar();
 			getline(cin, tmp.cardinal_num);
-
+			if (tmp.cardinal_num == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.cardinal_num == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
 			gotoxy(45, 8);
 			getline(cin, tmp.student_id);
-
+			if (tmp.student_id == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.student_id == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
 			gotoxy(45, 11);
 			getline(cin, tmp.name);
-
+			if (tmp.name == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.name == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
 			gotoxy(45, 14);
 			getline(cin, tmp.major);
-
+			if (tmp.major == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.major == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
 			gotoxy(45, 17);
 			getline(cin, tmp.phone_num);
-
+			if (tmp.phone_num == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.phone_num == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
 			gotoxy(45, 20);
 			getline(cin, tmp.statement);
+			if (tmp.statement == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.statement == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
-			for (int i = 0;i < index;i++)
+			int num_people=0;
+			for (int i = 0; i < index; i++)
 			{
 				if (inside(tmp.cardinal_num, list[i].cardinal_num) == 1 && inside(tmp.student_id, list[i].student_id) == 1 && inside(tmp.name, list[i].name) == 1 && inside(tmp.major, list[i].major) == 1 && inside(tmp.phone_num, list[i].phone_num) == 1 && inside(tmp.statement, list[i].statement) == 1)
 				{
+					num_people++;
+					gotoxy(30, 23+3*i);
 					cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement << endl;
 
 					index_arr.push_back(i);
@@ -415,6 +500,7 @@ private:
 			}
 			if (index_arr.size() != 1)
 			{
+				gotoxy(38, 23+3*num_people);
 				cout << "삭제할 대상을 하나로 다시 검색해주세요" << endl;
 				system("pause");
 				index_arr.clear();
@@ -422,11 +508,13 @@ private:
 
 			else if (index_arr.size() == 1)
 			{
-				cout << "\n인터페이스 회원 명단에서 삭제할까요? >>> y/n ";
+				gotoxy(38, 23 + 3 * num_people);
+				cout << "인터페이스 회원 명단에서 삭제할까요? >>> y/n ";
+				gotoxy(85, 23 + 3 * num_people);
 				cin >> x;
 				if (x == 'y')
 				{
-					for (int i = index_arr.front();i < index-1;i++)
+					for (int i = index_arr.front(); i < index - 1; i++)
 					{
 						list[i] = list[i + 1];
 					}
@@ -440,7 +528,7 @@ private:
 
 			}
 		}
-		
+
 	}
 
 	void change_member()
@@ -461,8 +549,11 @@ private:
 			tmp.statement = "\n";
 
 			system("cls");
-			gotoxy(44, 2);
+			gotoxy(30, 2);
 			cout << "명단을 수정하는 란입니다 아시는 정보를 입력해서 대상을 찾아주세요 " << endl;
+
+			gotoxy(30, 29);
+			cout << "재입력을 원하시면 r키, 메인 메뉴로 돌아가고 싶다면 m키를 입력해주세요" << endl;
 
 			gotoxy(38, 5);
 			cout << "기수 : ";
@@ -485,31 +576,81 @@ private:
 			gotoxy(45, 5);
 			getchar();
 			getline(cin, tmp.cardinal_num);
-
+			if (tmp.cardinal_num == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.cardinal_num == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
 			gotoxy(45, 8);
 			getline(cin, tmp.student_id);
-
+			if (tmp.student_id == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.student_id == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
 			gotoxy(45, 11);
 			getline(cin, tmp.name);
-
+			if (tmp.name == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.name == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
 			gotoxy(45, 14);
 			getline(cin, tmp.major);
-
+			if (tmp.major == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.major == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
 			gotoxy(45, 17);
 			getline(cin, tmp.phone_num);
-
+			if (tmp.phone_num == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.phone_num == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
 			gotoxy(45, 20);
 			getline(cin, tmp.statement);
+			if (tmp.statement == "r")
+			{
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				continue;
+			}
+			else if (tmp.statement == "m") {
+				tmp.cardinal_num = ""; tmp.student_id = ""; tmp.name = ""; tmp.major = ""; tmp.phone_num = ""; tmp.statement = "";
+				break;
+			}
 
-			for (int i = 0;i < index;i++)
+			for (int i = 0; i < index; i++)
 			{
 				if (inside(tmp.cardinal_num, list[i].cardinal_num) == 1 && inside(tmp.student_id, list[i].student_id) == 1 && inside(tmp.name, list[i].name) == 1 && inside(tmp.major, list[i].major) == 1 && inside(tmp.phone_num, list[i].phone_num) == 1 && inside(tmp.statement, list[i].statement) == 1)
 				{
+					gotoxy(26, 22);
 					cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement << endl;
 
 					index_arr.push_back(i);
@@ -517,6 +658,7 @@ private:
 			}
 			if (index_arr.size() != 1)
 			{
+				gotoxy(38, 23);
 				cout << "수정할 대상을 하나로 다시 검색해주세요" << endl;
 				system("pause");
 				index_arr.clear();
@@ -524,15 +666,29 @@ private:
 
 			else if (index_arr.size() == 1)
 			{
-				cout << "수정전과 수정후를 입력해주세요" << endl;
-				cout << " 수정 전: ";
+				gotoxy(38, 24);
+				cout << "수정 전과 수정 후를 입력해주세요" << endl;
+				gotoxy(38, 26);
+				cout << "수정 전 : ";
+				gotoxy(49, 26);
 				cin >> before;
-				cout << "수정 후: ";
+				gotoxy(38, 27);
+				cout << "수정 후 : ";
+				gotoxy(49, 27);
 				cin >> after;
 				if (list[index_arr.front()].cardinal_num.compare(before) == 0)
 				{
 					tm = list[index_arr.front()].cardinal_num.length();
 					list[index_arr.front()].cardinal_num.replace(0, tm, after);
+
+					system("cls");
+					gotoxy(50, 10);
+					cout << "수정이 완료되었습니다.";
+					gotoxy(26, 15);
+					cout << list[index_arr.front()].cardinal_num << "\t" << list[index_arr.front()].student_id << "\t" << list[index_arr.front()].name << "\t" << list[index_arr.front()].major << "\t" << list[index_arr.front()].phone_num << "\t" << list[index_arr.front()].statement << endl;
+					gotoxy(26, 20);
+					system("pause");
+
 					break;
 				}
 				if (list[index_arr.front()].student_id.compare(before) == 0)
@@ -565,11 +721,10 @@ private:
 					list[index_arr.front()].statement.replace(0, tm, after);
 					break;
 				}
-
 			}
 		}
 	}
-	
+
 public:
 
 	vector<Member> list;
@@ -584,26 +739,26 @@ public:
 		if (!file)
 		{
 			cout << "명단을 불러올수가 없습니다";
-		
+
 		}
 		index = 0;
 		while (!file.eof())
 		{
 			file >> tmp.cardinal_num >> tmp.student_id >> tmp.name >> tmp.major >> tmp.phone_num >> tmp.statement;
 			list.push_back(tmp);
-			
+
 			index++;
 		}
 		list.pop_back();
 		index--;
-		
+
 	}
 
 	void start_menu() {
 
 		string id;
 		system("cls");
-		for (int i = 0;i < 1;i++) {
+		for (int i = 0; i < 1; i++) {
 			setcolor(10, 0);
 			gotoxy(25, 2);
 			cout << "☆★☆★☆★☆★ 인터페이스 명부 관리 프로그램 ☆★☆★☆★☆★" << endl;
@@ -616,6 +771,31 @@ public:
 			system("cls");
 		}
 
+	}
+
+	void instruction()
+	{
+		system("cls");
+		gotoxy(25, 2);
+		cout << "☆★☆★☆★☆★ 명부 관리 프로그램 사용법 ☆★☆★☆★☆★" << endl;
+		gotoxy(8, 5);
+		cout << "추가 메뉴 입력 예시";
+		gotoxy(4, 8);
+		cout << "기수 : 31";
+		gotoxy(4, 11);
+		cout << "학번 : 18010847";
+		gotoxy(4, 14);
+		cout << "이름 : 박상욱";
+		gotoxy(4, 15);
+		cout << "학과 : 전자정보통신공학과";
+		gotoxy(4, 18);
+		cout << "번호 : 010 - 5187 - 5312";
+		gotoxy(4, 21);
+		cout << "상태: 재학";
+		gotoxy(4, 24);
+		cout << "추가 메뉴 r / m 키 사용 예시\tex) 기수 : r";
+		gotoxy(4, 27);
+		system("pause");
 	}
 
 	void menu()
@@ -636,60 +816,50 @@ public:
 			gotoxy(40, 15);
 			cout << "4. 삭제";
 			gotoxy(40, 18);
-			cout << "5. 끝내기";
+			cout << "5. 사용안내";
 			gotoxy(40, 21);
+			cout << "6. 종료";
+			gotoxy(40, 24);
 			cout << "메뉴를 선택하세요 : ";
 			cin >> select_menu;
-			switch (select_menu)
+			if (select_menu == 1)
 			{
-				case 1:
-				{
-					insert_member();
-					break;
-				}
-				case 2:
-				{
-					view_member();
-					break;
-				}
-				case 3:
-				{
-					change_member();
-					break;
-				}
-				case 4:
-				{
-					delete_member();
-					break;
-				}
-				case 5:
-				{
-					save_member();
-					exit(1);
-					list.clear();
-					break;
-				}
-				default:
-				{
-					system("cls");
-					gotoxy(44,10);
-					cout << "메뉴를 정확하게 입력해주세요" << endl;
-					gotoxy(44,20);
-					system("pause");
-					break;
-				}
+				insert_member();
+			}
+			else if (select_menu == 2)
+			{
+				view_member();
+			}
+			else if (select_menu == 3)
+			{
+				change_member();
+			}
+			else if (select_menu == 4)
+			{
+				delete_member();
+			}
+			else if (select_menu == 5)
+			{
+				instruction();
+			}
+			else if (select_menu == 6)
+			{
+				save_member();
+				exit(1);
+				list.clear();
+			}
+			else
+			{
+				error();
 			}
 
-			
 		}
 	}
-
-
 };
 
 int main()
 {
-	system("mod con cols=118 lines=30"); //콘솔창 가로 세로 길이 고정
+	system("mod con cols=120 lines=35"); //콘솔창 가로 세로 길이 고정
 	system("title 인터페이스 명부 관리 프로그램");
 	Manage test;
 	string bbb;
