@@ -63,7 +63,10 @@ private:
 
 			system("cls");
 			gotoxy(44, 2);
-			cout << "신입 기수를 추가하는 란입니다\t\t\t\t 재입력을 원하시면 r, 메인 메뉴로 돌아가고 싶다면 m키 입력해주세요" << endl;
+			cout << "신입 기수를 추가하는 란입니다";
+
+			gotoxy(30, 25);
+			cout << "재입력을 원하시면 r, 메인 메뉴로 돌아가고 싶다면 m키 입력해주세요" << endl;
 
 			gotoxy(38, 5);
 			cout << "기수 : ";
@@ -73,34 +76,85 @@ private:
 
 			gotoxy(38, 11);
 			cout << "이름 : ";
-			
+
 			gotoxy(38, 14);
 			cout << "학과 : ";
-			
+
 			gotoxy(38, 17);
 			cout << "전번 : ";
-			
+
 			gotoxy(38, 20);
 			cout << "상태 : ";
 
 			gotoxy(45, 5);
 			cin >> mem.cardinal_num;
+			if (mem.cardinal_num == "r")
+			{
+				mem.cardinal_num = "";
+				continue;
+			}
+			else if (mem.cardinal_num == "m") {
+				mem.cardinal_num = "";
+				break;
+			}
 
 			gotoxy(45, 8);
 			cin >> mem.student_id;
+			if (mem.student_id == "r")
+			{
+				mem.student_id = "";
+				continue;
+			}
+			else if (mem.student_id == "m") {
+				mem.student_id = "";
+				break;
+			}
 
 			gotoxy(45, 11);
 			cin >> mem.name;
+			if (mem.name == "r")
+			{
+				mem.name = "";
+				continue;
+			}
+			else if (mem.name == "m") {
+				mem.name = "";
+				break;
+			}
 
 			gotoxy(45, 14);
 			cin >> mem.major;
-
+			if (mem.major == "r")
+			{
+				mem.major = "";
+				continue;
+			}
+			else if (mem.major == "m") {
+				mem.major = "";
+				break;
+			}
 			gotoxy(45, 17);
 			cin >> mem.phone_num;
-
+			if (mem.phone_num == "r")
+			{
+				mem.phone_num = "";
+				continue;
+			}
+			else if (mem.phone_num == "m") {
+				mem.phone_num = "";
+				break;
+			}
 			gotoxy(45, 20);
 			cin >> mem.statement;
-
+			if (mem.statement == "r")
+			{
+				mem.statement = "";
+				continue;
+			}
+			else if (mem.statement == "m") {
+				mem.statement = "";
+				break;
+			}
 			list.push_back(mem);
 			index++;
 
