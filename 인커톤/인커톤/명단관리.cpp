@@ -61,153 +61,192 @@ private:
 
 			system("cls");
 			gotoxy(44, 2);
-			cout << "신입 기수를 추가하는 란입니다" << endl;
+			cout << "신입 기수를 추가하는 란입니다\t\t\t\t 재입력을 원하시면 r, 메인 메뉴로 돌아가고 싶다면 m키 입력해주세요" << endl;
 
 			gotoxy(38, 5);
-			cout << "기수: ";
+			cout << "기수 : ";
 
-			gotoxy(38, 7);
-			cout << "학번: ";
+			gotoxy(38, 8);
+			cout << "학번 : ";
 
-			gotoxy(38, 9);
-			cout << "이름: ";
-			
 			gotoxy(38, 11);
-			cout << "학과: ";
+			cout << "이름 : ";
 			
-			gotoxy(38, 13);
-			cout << "전번: ";
+			gotoxy(38, 14);
+			cout << "학과 : ";
 			
-			gotoxy(38, 15);
-			cout << "상태: ";
+			gotoxy(38, 17);
+			cout << "전번 : ";
+			
+			gotoxy(38, 20);
+			cout << "상태 : ";
 
-			gotoxy(44, 5);
+			gotoxy(45, 5);
 			cin >> mem.cardinal_num;
 
-			gotoxy(44, 7);
+			gotoxy(45, 8);
 			cin >> mem.student_id;
 
-			gotoxy(44, 9);
+			gotoxy(45, 11);
 			cin >> mem.name;
 
-			gotoxy(44, 11);
+			gotoxy(45, 14);
 			cin >> mem.major;
 
-			gotoxy(44, 13);
+			gotoxy(45, 17);
 			cin >> mem.phone_num;
 
-			gotoxy(44, 15);
+			gotoxy(45, 20);
 			cin >> mem.statement;
 
 			list.push_back(mem);
 			index++;
 
-			gotoxy(38, 18);
+			gotoxy(38, 23);
 			cout << "계속 하시겠습니까? y/n >> ";
 			cin >> answer;
 		}
 	}
 	void view_member()
 	{
-		
 			int bbb;
 			string find;
 			string tmp;
 			while(1){
 			system("cls");
+			gotoxy(38,2);
 			cout << "무엇을 검색 하실건가요?" << endl;
+			gotoxy(38, 5);
 			cout << "1. 기수" << endl;
+			gotoxy(38, 8);
 			cout << "2. 학번" << endl;
+			gotoxy(38, 11);
 			cout << "3. 이름" << endl;
-			cout << "4. 전화번호(010-xxxx-xxxx 형식으로 검색)" << endl;
-			cout << "5. 재학 여부(신입, 재학, 휴학) 검색" << endl;
-			cout << "6. 메인 화면으로 돌아가기" << endl;
-			cout << "메뉴를 선택하세요: ";
+			gotoxy(38, 14);
+			cout << "4. 학과" << endl;
+			gotoxy(38, 17);
+			cout << "5. 전화번호(010-xxxx-xxxx 형식으로 검색)" << endl;
+			gotoxy(38, 20);
+			cout << "6. 재학 여부(신입, 재학, 휴학) 검색" << endl;
+			gotoxy(38, 23);
+			cout << "7. 메인 화면으로 돌아가기" << endl;
+			gotoxy(38, 26);
+			cout << "메뉴를 선택하세요 : ";
 			cin >> bbb;
 
 			switch (bbb)
 			{
-			case 1:
-			{
-				cout << "기수를 입력하세요 : ";
-				cin >> find;
-				for (int i = 0;i < index;i++)
+				case 1:
 				{
-					if (find.compare(list[i].cardinal_num) == 0)
+					int idx = 0; // 표시하는 사람 수
+					system("cls");
+					gotoxy(38, 2);
+					cout << "기수를 입력하세요 : ";
+					cin >> find;
+					for (int i = 0;i < index;i++)
 					{
-						cout << list[i].cardinal_num << "\t\t" << list[i].student_id << "\t\t" << list[i].name << "\t\t" << list[i].major << "\t\t" << list[i].phone_num << "\t\t" << list[i].statement << endl;
+						if (find.compare(list[i].cardinal_num) == 0)
+						{
+							idx++;
+							gotoxy(28, 2+3*idx);
+							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+						}
+						gotoxy(28, 2 + 3 * (idx + 1));
 					}
+					system("pause");
+					break;
 				}
-				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
-				cin >> tmp;
-				break;
-			}
-			case 2:
-			{
-				cout << "학번을 입력하세요 : ";
-				cin >> find;
-				for (int i = 0;i < index;i++)
+				case 2:
+				{
+					int idx = 0; // 표시하는 사람 수
+					system("cls");
+					gotoxy(38, 2);
+					cout << "학번을 입력하세요 : ";
+					cin >> find;
+					for (int i = 0;i < index;i++)
+					{
+						if (inside(find,list[i].student_id)==1)
+						{
+							idx++;
+							gotoxy(28, 2+3*idx);
+							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+						}
+						gotoxy(28, 2 + 3 * (idx + 1));
+					}
+					system("pause");
+					break;
+				}
+				case 3 :
+				{
+					int idx = 0; // 표시하는 사람 수
+					system("cls");
+					gotoxy(38, 2);
+					cout << "이름을 입력하세요 : " ;
+					cin >> find;
+					for (int i = 0;i < index;i++)
+					{
+					
+						if (inside(find,list[i].name)==1)
+						{
+							idx++;
+							gotoxy(28, 2 + 3 * idx);
+							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+						}
+						gotoxy(28, 2 + 3 * (idx + 1));
+					}
+					system("pause");
+					break;
+				}
+				case 4:
+				{
+					int idx = 0; // 표시하는 사람 수
+					system("cls");
+					gotoxy(38, 2);
+					cout << "학과를 입력하세요 : " ;
+					cin >> find;
+					for (int i = 0;i < index;i++)
+					{
+						if (inside(find, list[i].major) == 1)
+						{
+							idx++;
+							gotoxy(28, 2 + 3 * idx);
+							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+						}
+						gotoxy(28, 2 + 3 * (idx + 1));
+					}
+					system("pause");
+					break;
+				}
+				case 5:
+				{
+					int idx = 0; // 표시하는 사람 수
+					system("cls");
+					gotoxy(38, 2);
+					cout << "번호를 입력하세요 : " ;
+					cin >> find;
+					for (int i = 0;i < index;i++)
+					{
+					
+						if (inside(find, list[i].major) == 1)
+						{
+							idx++;
+							gotoxy(28, 2 + 3 * idx);
+							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+						}
+						gotoxy(28, 2 + 3 * (idx+1));
+					}
+					system("pause");
+					break;
+				}
+				case 6:
 				{
 
-					if (inside(find,list[i].student_id)==1)
-					{
-						cout << list[i].cardinal_num << "\t\t" << list[i].student_id << "\t\t" << list[i].name << "\t\t" << list[i].major << "\t\t" << list[i].phone_num << "\t\t" << list[i].statement << endl;
-					}
+					break;
 				}
-				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
-				cin >> tmp;
-				break;
-			}
-			case 3 :
-			{
-				cout << "이름을 입력하세요 : " ;
-				cin >> find;
-				for (int i = 0;i < index;i++)
+				case 7:
 				{
-					if (inside(find,list[i].name)==1)
-					{
-						cout << list[i].cardinal_num << "\t\t" << list[i].student_id << "\t\t" << list[i].name << "\t\t" << list[i].major << "\t\t" << list[i].phone_num << "\t\t" << list[i].statement << endl;
-					}
+					break;
 				}
-				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
-				cin >> tmp;
-				break;
-			}
-			case 4:
-			{
-				cout << "전공을 입력하세요 : " ;
-				cin >> find;
-				for (int i = 0;i < index;i++)
-				{
-					if (inside(find, list[i].major) == 1)
-					{
-						cout << list[i].cardinal_num << "\t\t" << list[i].student_id << "\t\t" << list[i].name << "\t\t" << list[i].major << "\t\t" << list[i].phone_num << "\t\t" << list[i].statement << endl;
-					}
-				}
-				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
-				cin >> tmp;
-				break;
-			}
-			case 5:
-			{
-				cout << "전화번호를 입력하세요 : " ;
-				cin >> find;
-				for (int i = 0;i < index;i++)
-				{
-					if (inside(find, list[i].major) == 1)
-					{
-						cout << list[i].cardinal_num << "\t\t" << list[i].student_id << "\t\t" << list[i].name << "\t\t" << list[i].major << "\t\t" << list[i].phone_num << "\t\t" << list[i].statement << endl;
-					}
-				}
-				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
-				cin >> tmp;
-				break;
-			}
-			case 6:
-			{
-				return;
-			}
-
 			}
 
 		}
@@ -269,7 +308,7 @@ public:
 			cout << "☆★☆★☆★☆★ 인터페이스 명부 관리 프로그램 ☆★☆★☆★☆★" << endl;
 			Sleep(500);
 			system("cls");
-			setcolor(14, 0);
+			setcolor(15, 0);
 			gotoxy(25, 2);
 			cout << "☆★☆★☆★☆★ 인터페이스 명부 관리 프로그램 ☆★☆★☆★☆★" << endl;
 			Sleep(500);
