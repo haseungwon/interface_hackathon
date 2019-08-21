@@ -25,6 +25,8 @@ typedef struct member {
 int inside(string x, string y)
 {
 	int i;
+	if (x.compare("\n") == 0)
+		return 0;
 	for (i = 0;i < x.length();i++)
 	{
 		if (x.at(i) == y.at(i))
@@ -345,42 +347,16 @@ private:
 		gotoxy(45, 20);
 		getline(cin, tmp.statement);
 		
-		if (tmp.cardinal_num.compare("\n") != 0)
-		{
-			enter.push_back(tmp.cardinal_num);
-		}
-		if (tmp.student_id.compare("\n") != 0)
-		{
-			enter.push_back(tmp.student_id);
-		}
-		if (tmp.name.compare("\n") != 0)
-		{
-			enter.push_back(tmp.name);
-		}
-		if (tmp.major.compare("\n") != 0)
-		{
-			enter.push_back(tmp.major);
-		}
-		if (tmp.phone_num.compare("\n"))
-		{
-			enter.push_back(tmp.phone_num);
-		}
-		if (tmp.statement.compare("\n") != 0)
-		{
-			enter.push_back(tmp.statement);
-		}
-
 		for (int i = 0;i < index;i++)
 		{
-
-			if(inside(enter.front(),list[i].)==1)
+			if (inside(tmp.cardinal_num, list[i].cardinal_num) == 1 && inside(tmp.student_id, list[i].student_id) == 1 && inside(tmp.name, list[i].name) == 1 && inside(tmp.major, list[i].major) == 1 && inside(tmp.phone_num, list[i].phone_num) == 1 && inside(tmp.statement, list[i].statement )== 1)
+			{
+				cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+				
+				index_arr.push_back(i);
+			}
 		}
-
-
-		for (int i = 1;i < enter.size();i++)
-		{
-
-		}
+		
 		
 	}
 
