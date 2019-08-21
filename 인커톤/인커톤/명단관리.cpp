@@ -9,6 +9,8 @@
 
 using namespace std;
 
+//명단관리 프로그램
+
 typedef struct member {
 	
 	string name;
@@ -19,8 +21,6 @@ typedef struct member {
 	string statement;
 	
 }Member;
-
-
 
 int inside(string x, string y)
 {
@@ -211,6 +211,7 @@ class Manage
 			}
 		}
 	}
+
 	void swap(Member *x,Member *y)
 	{
 		Member tmp;
@@ -218,9 +219,6 @@ class Manage
 		*x = *y;
 		*y = tmp;
 	}
-
-
-
 
 	void error() {
 		system("cls");
@@ -812,6 +810,7 @@ public:
 	Member mem;
 	int index;
 	vector<int> index_arr;
+
 	Manage()
 	{
 		Member tmp;
@@ -839,7 +838,7 @@ public:
 
 		string id;
 		system("cls");
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 1; i++) {
 			setcolor(15, 0);
 			gotoxy(28, 2);
 			cout << "☆★☆★☆★☆★ 인터페이스 명부 관리 프로그램 ☆★☆★☆★☆★" << endl;
@@ -908,7 +907,10 @@ public:
 			gotoxy(40, 24);
 			cout << "메뉴를 선택하세요 : ";
 			cin >> select_menu;
-			if (select_menu == 1)
+			if (select_menu == 0) {
+
+			}
+			else if (select_menu == 1)
 			{
 				insert_member();
 			}
@@ -932,6 +934,7 @@ public:
 			else if (select_menu == 6)
 			{
 				save_member();
+				//for_gukbong();
 				exit(1);
 				list.clear();
 			}
@@ -942,10 +945,233 @@ public:
 
 		}
 	}
-};
 
+	/*void for_gukbong() {
+		system("cls");
+		int delay = 200;
+		for (int i = 0; i < 5; i++)
+		{
+			setcolor(0, 15);
+			gotoxy(1, 1);
+			cout << "종료 중";
+			setcolor(15, 0);
+			gotoxy(60, 15);
+			cout << "△";
+			gotoxy(60, 14);
+			cout << "△";
+			gotoxy(60, 13);
+			cout << "△";
+			gotoxy(60, 12);
+			cout << "△";
+			gotoxy(60, 11);
+			cout << "△";
+			gotoxy(60, 10);
+			cout << "△";
+			gotoxy(60, 9);
+			cout << "△";
+			gotoxy(60, 8);
+			cout << "△";
+			gotoxy(60, 7);
+			cout << "△";
+			gotoxy(60, 6);
+			cout << "△";
+			Sleep(delay);
+			system("cls");
+			setcolor(15, 0);
+			gotoxy(1, 1);
+			cout << "종료 중";
+			setcolor(15, 0);
+			gotoxy(61, 15);
+			cout << "▷";
+			gotoxy(63, 15);
+			cout << "▷";
+			gotoxy(65, 15);
+			cout << "▷";
+			gotoxy(67, 15);
+			cout << "▷";
+			gotoxy(69, 15);
+			cout << "▷";
+			gotoxy(71, 15);
+			cout << "▷";
+			gotoxy(73, 15);
+			cout << "▷";
+			gotoxy(75, 15);
+			cout << "▷";
+			gotoxy(77, 15);
+			cout << "▷";
+			gotoxy(79, 15);
+			cout << "▷";
+			Sleep(delay);
+			system("cls");
+			setcolor(0, 15);
+			gotoxy(1, 1);
+			cout << "종료 중";
+			setcolor(15, 0);
+			gotoxy(60, 16);
+			cout << "▽";
+			gotoxy(60, 17);
+			cout << "▽";
+			gotoxy(60, 18);
+			cout << "▽";
+			gotoxy(60, 19);
+			cout << "▽";
+			gotoxy(60, 20);
+			cout << "▽";
+			gotoxy(60, 21);
+			cout << "▽";
+			gotoxy(60, 22);
+			cout << "▽";
+			gotoxy(60, 23);
+			cout << "▽";
+			gotoxy(60, 24);
+			cout << "▽";
+			gotoxy(60, 25);
+			cout << "▽";
+			Sleep(delay);
+			system("cls");
+			setcolor(15, 0);
+			gotoxy(1, 1);
+			cout << "종료 중";
+			setcolor(15, 0);
+			gotoxy(59, 15);
+			cout << "◁";
+			gotoxy(57, 15);
+			cout << "◁";
+			gotoxy(55, 15);
+			cout << "◁";
+			gotoxy(53, 15);
+			cout << "◁";
+			gotoxy(51, 15);
+			cout << "◁";
+			gotoxy(49, 15);
+			cout << "◁";
+			gotoxy(47, 15);
+			cout << "◁";
+			gotoxy(45, 15);
+			cout << "◁";
+			gotoxy(43, 15);
+			cout << "◁";
+			gotoxy(41, 15);
+			cout << "◁";
+			Sleep(delay);
+			system("cls");
+		}
+		for (int i = 0; i < 5; i++)
+		{
+			setcolor(0, 15);
+			gotoxy(1, 1);
+			cout << "종료 중";
+			setcolor(15, 0);
+			gotoxy(60, 15);
+			cout << "△";
+			gotoxy(60, 14);
+			cout << "△";
+			gotoxy(60, 13);
+			cout << "△";
+			gotoxy(60, 12);
+			cout << "△";
+			gotoxy(60, 11);
+			cout << "△";
+			gotoxy(60, 10);
+			cout << "△";
+			gotoxy(60, 9);
+			cout << "△";
+			gotoxy(60, 8);
+			cout << "△";
+			gotoxy(60, 7);
+			cout << "△";
+			gotoxy(60, 6);
+			cout << "△";
+			Sleep(delay);
+			system("cls");
+			setcolor(15, 0);
+			gotoxy(1, 1);
+			cout << "종료 중";
+			setcolor(15, 0);
+			gotoxy(59, 15);
+			cout << "◁";
+			gotoxy(57, 15);
+			cout << "◁";
+			gotoxy(55, 15);
+			cout << "◁";
+			gotoxy(53, 15);
+			cout << "◁";
+			gotoxy(51, 15);
+			cout << "◁";
+			gotoxy(49, 15);
+			cout << "◁";
+			gotoxy(47, 15);
+			cout << "◁";
+			gotoxy(45, 15);
+			cout << "◁";
+			gotoxy(43, 15);
+			cout << "◁";
+			gotoxy(41, 15);
+			cout << "◁";
+			Sleep(delay);
+			system("cls");
+			setcolor(0, 15);
+			gotoxy(1, 1);
+			cout << "종료 중";
+			setcolor(15, 0);
+			gotoxy(60, 16);
+			cout << "▽";
+			gotoxy(60, 17);
+			cout << "▽";
+			gotoxy(60, 18);
+			cout << "▽";
+			gotoxy(60, 19);
+			cout << "▽";
+			gotoxy(60, 20);
+			cout << "▽";
+			gotoxy(60, 21);
+			cout << "▽";
+			gotoxy(60, 22);
+			cout << "▽";
+			gotoxy(60, 23);
+			cout << "▽";
+			gotoxy(60, 24);
+			cout << "▽";
+			gotoxy(60, 25);
+			cout << "▽";
+			Sleep(delay);
+			system("cls");
+			setcolor(15, 0);
+			gotoxy(1, 1);
+			cout << "종료 중";
+			setcolor(15, 0);
+			gotoxy(61, 15);
+			cout << "▷";
+			gotoxy(63, 15);
+			cout << "▷";
+			gotoxy(65, 15);
+			cout << "▷";
+			gotoxy(67, 15);
+			cout << "▷";
+			gotoxy(69, 15);
+			cout << "▷";
+			gotoxy(71, 15);
+			cout << "▷";
+			gotoxy(73, 15);
+			cout << "▷";
+			gotoxy(75, 15);
+			cout << "▷";
+			gotoxy(77, 15);
+			cout << "▷";
+			gotoxy(79, 15);
+			cout << "▷";
+			Sleep(delay);
+			system("cls");
+		}
+
+		gotoxy(60, 15);
+		system("pause");
+	}
+};*/
+};
 int main()
 {
+	srand(time(NULL));
 	system("mod con cols=120 lines=35"); //콘솔창 가로 세로 길이 고정
 	system("title 인터페이스 명부 관리 프로그램");
 	Manage test;
