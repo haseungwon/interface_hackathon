@@ -22,6 +22,22 @@ typedef struct member {
 
 
 
+int inside(string x, string y)
+{
+	int i;
+	for (i = 0;i < x.length();i++)
+	{
+		if (x.at(i) == y.at(i))
+			continue;
+		else
+			break;
+	}
+	if (i == x.length())
+		return 1;
+	else
+		return 0;
+}
+
 void gotoxy(short x, short y) {
 	COORD pos = { x, y };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
@@ -113,13 +129,13 @@ private:
 			{
 			case 1:
 			{
-				cout << "기수를 입력하세요 : " << endl;
+				cout << "기수를 입력하세요 : ";
 				cin >> find;
 				for (int i = 0;i < index;i++)
 				{
 					if (find.compare(list[i].cardinal_num) == 0)
 					{
-						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement << endl;
+						cout << list[i].cardinal_num << "\t\t" << list[i].student_id << "\t\t" << list[i].name << "\t\t" << list[i].major << "\t\t" << list[i].phone_num << "\t\t" << list[i].statement << endl;
 					}
 				}
 				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
@@ -128,35 +144,70 @@ private:
 			}
 			case 2:
 			{
-				cout << "학번을 입력하세요 : " << endl;
+				cout << "학번을 입력하세요 : ";
 				cin >> find;
 				for (int i = 0;i < index;i++)
 				{
 
-					if (find.compare(list[i].cardinal_num) == 0)
+					if (inside(find,list[i].student_id)==1)
 					{
-						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement << endl;
+						cout << list[i].cardinal_num << "\t\t" << list[i].student_id << "\t\t" << list[i].name << "\t\t" << list[i].major << "\t\t" << list[i].phone_num << "\t\t" << list[i].statement << endl;
 					}
 				}
 				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
 				cin >> tmp;
 				break;
 			}
-			case3:
+			case 3 :
 			{
-				cout << "이름을 입력하세요 : " << endl;
+				cout << "이름을 입력하세요 : " ;
 				cin >> find;
 				for (int i = 0;i < index;i++)
 				{
-					if (find.compare(list[i].cardinal_num) == 0)
+					if (inside(find,list[i].name)==1)
 					{
-						cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement << endl;
+						cout << list[i].cardinal_num << "\t\t" << list[i].student_id << "\t\t" << list[i].name << "\t\t" << list[i].major << "\t\t" << list[i].phone_num << "\t\t" << list[i].statement << endl;
 					}
 				}
 				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
 				cin >> tmp;
 				break;
 			}
+			case 4:
+			{
+				cout << "전공을 입력하세요 : " ;
+				cin >> find;
+				for (int i = 0;i < index;i++)
+				{
+					if (inside(find, list[i].major) == 1)
+					{
+						cout << list[i].cardinal_num << "\t\t" << list[i].student_id << "\t\t" << list[i].name << "\t\t" << list[i].major << "\t\t" << list[i].phone_num << "\t\t" << list[i].statement << endl;
+					}
+				}
+				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
+				cin >> tmp;
+				break;
+			}
+			case 5:
+			{
+				cout << "전화번호를 입력하세요 : " ;
+				cin >> find;
+				for (int i = 0;i < index;i++)
+				{
+					if (inside(find, list[i].major) == 1)
+					{
+						cout << list[i].cardinal_num << "\t\t" << list[i].student_id << "\t\t" << list[i].name << "\t\t" << list[i].major << "\t\t" << list[i].phone_num << "\t\t" << list[i].statement << endl;
+					}
+				}
+				cout << "다음으로 진행하기위해 아무거나 입력하시오 " << endl;
+				cin >> tmp;
+				break;
+			}
+			case 6:
+			{
+				return;
+			}
+
 			}
 
 		}
@@ -203,6 +254,8 @@ public:
 			
 			index++;
 		}
+		list.pop_back();
+		index--;
 		
 	}
 
