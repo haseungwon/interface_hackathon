@@ -240,11 +240,29 @@ private:
 				}
 				case 6:
 				{
+					int idx = 0; // 표시하는 사람 수
+					system("cls");
+					gotoxy(38, 2);
+					cout << "재학 여부(신입, 재학, 휴학)를 입력하세요 : ";
+					cin >> find;
+					for (int i = 0;i < index;i++)
+					{
 
+						if (inside(find, list[i].statement) == 1)
+						{
+							idx++;
+							gotoxy(28, 2 + 3 * idx);
+							cout << list[i].cardinal_num << "\t" << list[i].student_id << "\t" << list[i].name << "\t" << list[i].major << "\t" << list[i].phone_num << "\t" << list[i].statement;
+						}
+						gotoxy(28, 2 + 3 * (idx + 1));
+					}
+					system("pause");
 					break;
+				
 				}
 				case 7:
 				{
+					return;
 					break;
 				}
 			}
@@ -268,7 +286,14 @@ private:
 		file.close();
 	
 	}
+	
+	void delete_member()
+	{
+		
 
+	}
+	
+	
 public:
 
 	vector<Member> list;
@@ -358,7 +383,7 @@ public:
 				}
 				case 4:
 				{
-
+					delete_member();
 					break;
 				}
 				case 5:
