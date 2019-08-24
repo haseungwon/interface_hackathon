@@ -60,8 +60,8 @@ class Manage
 
 	void insert_member()
 	{
-		char answer = 'y';
-		while (answer == 'y') {
+		string answer = "y";
+		while (answer.compare("y")==0) {
 
 			system("cls");
 			gotoxy(44, 2);
@@ -200,14 +200,14 @@ class Manage
 
 			gotoxy(38, 23);
 			cout << "계속 하시겠습니까? y/n >> ";
-			cin >> answer;
-			while (answer != 'y'&&answer != 'n') {
+			getline(cin, answer);
+			while (answer.compare("y") == 1 && answer.compare("n") == 1) {
 				system("cls");
 				gotoxy(38, 10);
 				cout << "y 또는 n 으로 입력해주세요";
 				gotoxy(38, 15);
 				cout << "계속 하시겠습니까? y/n >> ";
-				cin >> answer;
+				getline(cin, answer);
 			}
 		}
 	}

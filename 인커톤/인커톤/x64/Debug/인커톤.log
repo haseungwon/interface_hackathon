@@ -1,9 +1,10 @@
 ﻿  명단관리.cpp
-c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(720): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(735): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(749): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(763): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(777): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(791): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(721): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(736): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(750): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(764): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(778): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(792): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 c:\users\msi\documents\interface_hackathon\인커톤\인커톤\명단관리.cpp(580): warning C4101: 'x' :참조되지 않은 지역 변수입니다.
+  LINK : C:\Users\MSI\Documents\interface_hackathon\인커톤\x64\Debug\인커톤.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
   인커톤.vcxproj -> C:\Users\MSI\Documents\interface_hackathon\인커톤\x64\Debug\인커톤.exe
